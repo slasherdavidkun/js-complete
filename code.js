@@ -1,41 +1,152 @@
-//create world champion objects
-var wchMale = {
-    name: "Usain Bolt",
-    time: 9.58
+//help the cashier return the right of change
+
+
+//Programme input: 
+    
+//Amount due
+var total = prompt('Total due:');
+    
+//Amount paid by the customer
+var moneyPaid = prompt('Amount paid:');
+
+//convert collected values to float numbers. Make sure the decimal part has two digits only.
+total = parseFloat(total).toFixed(2);
+moneyPaid = parseFloat(moneyPaid).toFixed(2);
+
+//Programme output:
+    
+//calculate the change amount.Make sure the decimal part has two digits only.
+var change = (moneyPaid - total).toFixed(2);
+
+//Print the amount due/ amount paid/ change
+console.log('Due: £' + total + '/ Paid: £' + moneyPaid + '/ Change: £' + change);
+    
+//Print change breakdown: notes and coins
+
+var note_coin;
+
+//£50 note
+note_coin = {
+    value: 50,
+    name: '£50 notes: ',
+    return: 0
 };
-var wchFemale = {
-    name: "Florence Griffith-Joyner",
-    time: 10.49
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//£20 note
+note_coin = {
+    value: 20,
+    name: '£20 notes: ',
+    return: 0
 };
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//£10 note
+note_coin = {
+    value: 10,
+    name: '£10 notes: ',
+    return: 0
+};
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//£5 note
+note_coin = {
+    value: 5,
+    name: '£5 notes: ',
+    return: 0
+};
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//£2 coin
+note_coin = {
+    value: 2,
+    name: '£2 coins: ',
+    return: 0
+};
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//£1 coin
+note_coin = {
+    value: 1,
+    name: '£1 coins: ',
+    return: 0
+};
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//50p coin
+note_coin = {
+    value: 0.50,
+    name: '50p coins: ',
+    return: 0
+};
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//20p coin
+note_coin = {
+    value: 0.20,
+    name: '20p coins: ',
+    return: 0
+};
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//10p coin
+note_coin = {
+    value: 0.10,
+    name: '10p coins: ',
+    return: 0
+};
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//5p coin
+note_coin = {
+    value: 0.05,
+    name: '5p coins: ',
+    return: 0
+};
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//2p coin
+note_coin = {
+    value: 0.02,
+    name: '2p coins: ',
+    return: 0
+};
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
+
+//1p coin
+note_coin = {
+    value: 0.01,
+    name: '1p coins: ',
+    return: 0
+};
+note_coin.return = Math.floor(change/note_coin.value);
+change = (change%note_coin.value).toFixed(2);
+note_coin.return > 0 ? console.log(note_coin.name + note_coin.return): 0;
 
 
-//create the user object
-var user = {};
 
-//get gender from the user
-user.gender = prompt("Please enter your gender: male or female");
-user.gender = user.gender.toLowerCase();
 
-//get the time from the user
-user.time = prompt("Please enter your race time:");
-user.time = parseFloat(user.time);
 
-console.log(user);
 
-//if statement
-if(user.gender === "male" && !isNaN(user.time)){
-    if(user.time < wchMale.time){
-        console.log("Congratulations! You have beaten " + wchMale.name + ", you have set a new world record: " + user.time + " seconds.");
-    }else{
-        console.log("Sorry! You need to train harder!");
-    }
-
-}else if(user.gender === "female" && !isNaN(user.time)){
-    if(user.time < wchFemale.time){
-        console.log("Congratulations! You have beaten " + wchFemale.name + ", you have set a new world record: " + user.time + " seconds.");
-    }else{
-        console.log("Sorry! You need to train harder!");
-    }
-}else{
-    console.log('Please reload the page and use a correct gender and a correct time!');
-}
