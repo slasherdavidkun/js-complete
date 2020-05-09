@@ -1,15 +1,16 @@
-//build the calculateCost function
-function calculateCost(hotelPrice, duration, ticketPrice, budget){
-    var totalCost = hotelPrice * duration + ticketPrice;
-    console.log("The total cost of your plan is $" + totalCost + ".");
-    console.log("Your budget is $" + budget + ".");
-    
-    //decide whether the plan is within our budget
-    var result;
-    if(totalCost <= budget){
-        result = "Let's go!";
+//create the function greet
+function greet(language){
+    if(language.toLowerCase() === "english"){
+        return function(name){
+            return "Hello " + name + "! Welcome to the museum!";
+        }
+    }else if(language.toLowerCase() === "spanish"){
+        return function(name){
+            return "Hola " + name + "! Bienvenido al museo!";
+        }
     }else{
-        result = "Please change your plan!";
+        return function(name){
+            return "I can only speak English or Spanish!";
+        }
     }
-    return result;
 }
