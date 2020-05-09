@@ -1,35 +1,45 @@
-// Check if a number is prime or not
+//Create the totalVotes variable
+var totalVotes = 0;
 
-//1. Prompt the user to input a whole number
+//create player1 and player2 objects
+var player1 = {
+    name: "Rafel Nadal",
+    votes: 0
+};
+var player2 = {
+    name: "Novak Djokovic",
+    votes: 0
+};
 
-//2. if the user does not provide a whole number, keep prompting the user to input a valid number until they provide one
+//build the vote function
+function vote(player){
+    player.votes ++;
+    totalVotes ++;
+}
 
-var number;
-do {
-    number = prompt('Please input a whole number: ');
-    number = parseInt(number);
-}while(!Number.isInteger(number));
+//ask for votes
+while(totalVotes < 10){
+    //get the vote: 1 or 2
+    var choice = prompt("To vote Rafael Nadal, type 1. To vote Novak Djokovic, type 2.");
 
-//3. if the provided number is prime: Print the number is prime
-
-//4. Otherwise print the number is not prime and print its smallest positive divisor other than 1.
-
-isPrime(number);
-function isPrime(n){
-    if(n <= 1){
-        console.log(n + ' is not a prime number!');
-    }else if (n == 2){
-        console.log(n + ' is a prime number!');
-    }else{
-        var i = 2;//2,3,4,5,...,n-1
-        while(i < n && (n % i != 0)){
-            i ++;
-        }
-        if(i == n){
-            console.log(n + ' is a prime number!');
-        }else{
-            console.log(n + ' is not a prime number! It can be divided by ' + i + '.');
-        }
+    //1 -> Rafael, 2 -> Novak
+    if(choice === '1'){
+        vote(player1);
+    }else if(choice === '2'){
+        vote(player2);
     }
 }
 
+//Results:
+console.log("Results:");
+console.log("Rafael Nadal: " + player1.votes + " votes.");
+console.log("Novak Djokovic: " + player2.votes + " votes.");
+
+//who is the favourite to win?
+if(player1.votes > player2.votes){
+    console.log(player1.name + " is the favourite to win.");
+}else if(player1.votes < player2.votes){
+    console.log(player2.name + " is the favourite to win.");
+}else{
+    console.log("No favourite to win!");
+}
